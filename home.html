@@ -4,7 +4,10 @@
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
 <meta name="google-signin-client_id" content="1040550554735-0lfo665jrpgkprjkqdvh9njlc46mu6rg.apps.googleusercontent.com">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.12.0/bootstrap-social.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <script>
@@ -63,8 +66,7 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      console.log(FB.getAuthResponse()['accessToken']);
-      alert(FB.getAuthResponse()['accessToken'])
+      console.log('facebook token:'+ FB.getAuthResponse()['accessToken']);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
@@ -88,8 +90,7 @@
     function onSuccess(googleUser) {
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
       let token = googleUser.getAuthResponse().id_token
-      console.log('access token is : ' + token);
-      alert(token)
+      console.log('Google access token is : ' + token);
     }
     function onFailure(error) {
       console.log(error);
@@ -108,6 +109,7 @@
   </script>
 
   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
 </body>
 
 </body>
